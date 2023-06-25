@@ -352,6 +352,8 @@ int main ()
           // Compute control to apply
           pid_throttle.UpdateError(error_throttle);
           double throttle = pid_throttle.TotalError();
+          std::cout << ' ' << error_throttle;
+          std::cout << '\n';
 
           // Adapt the negative throttle to break
           if (throttle > 0.0) {
