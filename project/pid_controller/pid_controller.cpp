@@ -59,7 +59,9 @@ double PID::TotalError() {
       std::cout << "dt 0, calculate d_err: "  << d_err << endl;
 
     }
-    double control = -Kp * prev_cte - d_err - Ki * sum_cte;
+    // The course material gave the formula as "-tau_p * cte - tau_d * diff_cte - tau_i * sum_cte" 
+    // This gives negative values for throttle so I will remove the negatives
+    double control = Kp * prev_cte + d_err + Ki * sum_cte;
 
    //Super debug stack
     std::cout << '\n';
