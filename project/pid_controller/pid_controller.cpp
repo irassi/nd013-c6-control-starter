@@ -19,6 +19,16 @@ void PID::Init(double Kpi, double Kii, double Kdi, double output_lim_maxi, doubl
    /**
    * TODO: Initialize PID coefficients (and errors, if needed)
    **/
+  Kp = Kpi;
+  Ki = Kii;
+  Kd = Kdi;
+  output_lim_max = output_lim_maxi;
+  output_lim_min = output_lim_mini;
+  sum_cte = 0.0;
+  diff_cte = 0,0;
+  prev_cte = 0.0;
+  cte = 0.0;
+
 }
 
 
@@ -26,6 +36,7 @@ void PID::UpdateError(double cte) {
    /**
    * TODO: Update PID errors based on cte.
    **/
+  diff_cte = cte - 
 }
 
 double PID::TotalError() {
@@ -33,7 +44,11 @@ double PID::TotalError() {
    * TODO: Calculate and return the total error
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
-    double control;
+   
+    double control = Kpi
+     
+
+
     return control;
 }
 
