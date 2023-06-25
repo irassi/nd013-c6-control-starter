@@ -27,8 +27,7 @@ void PID::Init(double Kpi, double Kii, double Kdi, double output_lim_maxi, doubl
   sum_cte = 0.0;
   diff_cte = 0,0;
   prev_cte = 0.0;
-  cte = 0.0;
-  delta_time = 0.0;
+  delta_time = 1;
 
 }
 
@@ -62,7 +61,7 @@ double PID::TotalError() {
    //Super debug stack
     std::cout << '\n';
     std::cout << "Kp: "  << Kp << endl
-              << "cte: " << cte << endl
+              << "prev_cte: " << prev_cte << endl
               << "Kd: "  << Kd << endl
               << "diff_cte: "  << diff_cte << endl
               << "delta_time: "  << delta_time << endl
