@@ -58,7 +58,11 @@ double PID::TotalError() {
       double control = -Kp * cte - Ki * sum_cte;
 
     }
-   
+
+    std::cout << '\n';
+    std::cout << "Control: "  << control << endl;
+    std::cout << '\n';
+
 
     if (control > output_lim_max) {
       control = output_lim_max;
