@@ -341,7 +341,12 @@ int main ()
           // modify the following line for step 2
 
           // calculate the difference between the actual velocity and the desired speed from the path planner
-          error_throttle = v_points.back() - velocity; 
+          // error_throttle = v_points.back() - velocity; 
+
+          if (v_points.size()>0)
+          {
+            error_throttle = v_points[v_points.size()-1] - velocity;
+          }
 
           double throttle_output;
           double brake_output;
@@ -352,6 +357,7 @@ int main ()
           // Compute control to apply
           pid_throttle.UpdateError(error_throttle);
           double throttle = pid_throttle.TotalError();
+          std::cout << 'Error throttle \n';
           std::cout << ' ' << error_throttle;
           std::cout << '\n';
 
