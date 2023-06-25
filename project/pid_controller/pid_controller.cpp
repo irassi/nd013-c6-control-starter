@@ -36,7 +36,9 @@ void PID::UpdateError(double cte) {
    /**
    * TODO: Update PID errors based on cte.
    **/
-  diff_cte = cte - 
+  diff_cte = cte - prev_cte;
+  sum_cte += cte;
+  prev_cte = cte;
 }
 
 double PID::TotalError() {
@@ -44,9 +46,27 @@ double PID::TotalError() {
    * TODO: Calculate and return the total error
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
+
+    double control = 0.0;
+
+//   Check for 0 values for delta_time
+    if (delta_time > 0) {
+      double control = -Kp * cte - Kd * diff_cte / delta_time - Ki * sum_cte;
+
+    } else {
+      // If dt is 0, set Kd to 0 too
+      double control = -Kp * cte - Ki * sum_cte;
+
+    }
    
-    double control = Kpi
-     
+
+    if (control > output_lim_max) {
+      control = output_lim_max;
+    }     
+
+    if (control < output_lim_min) {
+      control = output_lim_min;
+    }
 
 
     return control;
@@ -56,4 +76,5 @@ double PID::UpdateDeltaTime(double new_delta_time) {
    /**
    * TODO: Update the delta time with new value
    */
+  delta_time = new_delta_time;
 }
