@@ -28,6 +28,7 @@ void PID::Init(double Kpi, double Kii, double Kdi, double output_lim_maxi, doubl
   diff_cte = 0,0;
   prev_cte = 0.0;
   cte = 0.0;
+  delta_time = 0.0;
 
 }
 
@@ -51,11 +52,11 @@ double PID::TotalError() {
 
 //   Check for 0 values for delta_time
     if (delta_time > 0) {
-      double control = -Kp * cte - Kd * diff_cte / delta_time - Ki * sum_cte;
+      double control = -Kp * prev_cte - Kd * diff_cte / delta_time - Ki * sum_cte;
 
     } else {
       // If dt is 0, set Kd to 0 too
-      double control = -Kp * cte - Ki * sum_cte;
+      double control = -Kp * prev_cte - Ki * sum_cte;
 
     }
    //Super debug stack
