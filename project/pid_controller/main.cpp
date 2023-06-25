@@ -341,7 +341,7 @@ int main ()
           // modify the following line for step 2
 
           // calculate the difference between the actual velocity and the desired speed from the path planner
-          error_throttle = velocity - v_points.back(); 
+          error_throttle = v_points.back() - velocity; 
 
           double throttle_output;
           double brake_output;
