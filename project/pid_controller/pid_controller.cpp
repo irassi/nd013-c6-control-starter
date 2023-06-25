@@ -47,20 +47,20 @@ double PID::TotalError() {
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
 
-    double control = 0.0;
-    std::cout << "Set control to 0.0: "  << control << endl;
-
 //   Check for 0 values for delta_time
+    double d_err = 0;
     if (delta_time > 0) {
-      double control = -Kp * prev_cte - Kd * diff_cte / delta_time - Ki * sum_cte;
-      std::cout << "dt over 0, calculate control: "  << control << endl;
+      double d_err = Kd * diff_cte / delta_time;
+      std::cout << "dt over 0, calculate d_err: "  << d_err << endl;
 
     } else {
-      // If dt is 0, set Kd to 0 too
-      double control = -Kp * prev_cte - Ki * sum_cte;
-      std::cout << "dt 0, calculate control: "  << control << endl;
+      // If dt is 0, set d_err to 0 too
+      double d_err = 0;
+      std::cout << "dt 0, calculate d_err: "  << d_err << endl;
 
     }
+    double control = -Kp * prev_cte - d_err - Ki * sum_cte;
+
    //Super debug stack
     std::cout << '\n';
     std::cout << "Kp: "  << Kp << endl
