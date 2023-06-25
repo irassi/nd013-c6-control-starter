@@ -48,14 +48,17 @@ double PID::TotalError() {
    */
 
     double control = 0.0;
+    std::cout << "Set control to 0.0: "  << control << endl
 
 //   Check for 0 values for delta_time
     if (delta_time > 0) {
       double control = -Kp * prev_cte - Kd * diff_cte / delta_time - Ki * sum_cte;
+      std::cout << "dt over 0, calculate control: "  << control << endl
 
     } else {
       // If dt is 0, set Kd to 0 too
       double control = -Kp * prev_cte - Ki * sum_cte;
+      std::cout << "dt 0, calculate control: "  << control << endl
 
     }
    //Super debug stack
