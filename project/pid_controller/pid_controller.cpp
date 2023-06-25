@@ -58,9 +58,16 @@ double PID::TotalError() {
       double control = -Kp * cte - Ki * sum_cte;
 
     }
-
+   //Super debug stack
     std::cout << '\n';
-    std::cout << "Control: "  << control << endl;
+    std::cout << "Kp: "  << Kp << endl
+              << "cte: " << cte << endl
+              << "Kd: "  << Kd << endl
+              << "diff_cte: "  << diff_cte << endl
+              << "delta_time: "  << delta_time << endl
+              << "Ki: "  << Ki << endl
+              << "sum_cte: "  << sum_cte << endl
+              << "Control: "  << control << endl;
     std::cout << '\n';
 
 
