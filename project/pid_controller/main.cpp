@@ -225,12 +225,16 @@ int main ()
   **/
 
   PID pid_steer = PID();
-  //Initial values set to 1
-  pid_steer.Init(1, 1, 1, 1.2, -1.2);
+  // //Initial values set to 1
+  // pid_steer.Init(1, 1, 1, 1.2, -1.2);
+  //Steering error is quite drastic, lowering P and I a little bit
+  pid_steer.Init(0.5, 0.5, 1, 1.2, -1.2);
 
   PID pid_throttle = PID();
-  //Initial values set to 0.2, 0.004, 3.0 based on course materials
-  pid_throttle.Init(0.2, 0.004, 3.0, 1.2, -1.2);
+  // //Initial values set to 0.2, 0.004, 3.0 based on course materials
+  // pid_throttle.Init(0.2, 0.004, 3.0, 1.2, -1.2);
+  //Second try, increase I to fix bias
+  pid_throttle.Init(0.2, 0.01, 3.0, 1.2, -1.2);
 
 
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer, &i, &prev_timer](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
@@ -305,7 +309,7 @@ int main ()
           /**
           * TODO (step 3): compute the steer error (error_steer) from the position and the desired trajectory
           **/
-         
+
          //calculate the angle using the prepared "angle_between_points" function and subtract "yaw"
           double angle = angle_between_points(x_points.end()[-2], y_points.end()[-2], x_points.end()[-1], y_points.end()[-1]);
 
