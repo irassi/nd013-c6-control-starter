@@ -251,8 +251,8 @@ int main ()
   // pid_throttle.Init(0.2, 0.001, 0.4, 1.2, -1.2);
   //     //5th, throttle is looking better, bring down D to see if it helps even more 
   // pid_throttle.Init(0.2, 0.001, 0.1, 1.2, -1.2);
-       //6th, going to try taking D down even more 
-  pid_throttle.Init(0.2, 0.001, 0.01, 1.2, -1.2);
+       //6th, going to try taking D up a bit
+  pid_throttle.Init(0.2, 0.001, 0.3, 1.2, -1.2);
 
 
 
