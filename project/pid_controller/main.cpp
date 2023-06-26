@@ -236,7 +236,7 @@ int main ()
   // // 5th: Steering was looking better but still nudged another car. Tweaking ID more
   // pid_steer.Init(0.4, 0.001, 0.3, 1.2, -1.2);
     // 6th: Steering was looking better but still nudged the car. Tweaking PID more
-  pid_steer.Init(0.2, 0.0005, 0.2, 1.2, -1.2);
+  pid_steer.Init(0.2, 0.0005, 0.7, 1.2, -1.2);
 
 
 
