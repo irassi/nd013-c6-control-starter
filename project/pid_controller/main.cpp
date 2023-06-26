@@ -227,14 +227,18 @@ int main ()
   PID pid_steer = PID();
   // //Initial values set to 1
   // pid_steer.Init(1, 1, 1, 1.2, -1.2);
-  //Steering error is quite drastic, lowering P and I a little bit
-  pid_steer.Init(0.5, 0.5, 1, 1.2, -1.2);
+  // //Second try: Steering error is quite drastic, lowering P and I a little bit
+  // pid_steer.Init(0.5, 0.5, 1, 1.2, -1.2);
+  //Steering error is a little better but still overshooting a lot. Bringing PD values down more
+  pid_steer.Init(0.1, 0.05, 1, 1.2, -1.2);
 
   PID pid_throttle = PID();
   // //Initial values set to 0.2, 0.004, 3.0 based on course materials
   // pid_throttle.Init(0.2, 0.004, 3.0, 1.2, -1.2);
-  //Second try, increase I to fix bias
-  pid_throttle.Init(0.2, 0.01, 3.0, 1.2, -1.2);
+  // //Second try, increase I to fix bias
+  // pid_throttle.Init(0.2, 0.01, 3.0, 1.2, -1.2);
+  //Third try, D is too high 
+  pid_throttle.Init(0.2, 0.01, 1.0, 1.2, -1.2);
 
 
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer, &i, &prev_timer](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
