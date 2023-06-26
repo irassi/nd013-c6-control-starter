@@ -231,10 +231,13 @@ int main ()
   // pid_steer.Init(0.5, 0.5, 1, 1.2, -1.2);
   // //Third: Steering error is a little better but still overshooting a lot. Bringing PD values down more
   // pid_steer.Init(0.1, 0.05, 1, 1.2, -1.2);
-  // 4th: Raising P, decreasing ID because previous one was not better
-  pid_steer.Init(0.4, 0.005, 0.4, 1.2, -1.2);
-  // 5th: Steering was looking better but still nudged another car. Tweaking ID more
-  pid_steer.Init(0.4, 0.001, 0.3, 1.2, -1.2);
+  // // 4th: Raising P, decreasing ID because previous one was not better
+  // pid_steer.Init(0.4, 0.005, 0.4, 1.2, -1.2);
+  // // 5th: Steering was looking better but still nudged another car. Tweaking ID more
+  // pid_steer.Init(0.4, 0.001, 0.3, 1.2, -1.2);
+    // 6th: Steering was looking better but still nudged the car. Tweaking PID more
+  pid_steer.Init(0.2, 0.0005, 0.2, 1.2, -1.2);
+
 
 
   PID pid_throttle = PID();
@@ -246,8 +249,10 @@ int main ()
   // pid_throttle.Init(0.2, 0.01, 1.0, 1.2, -1.2);
   //   //4th, lowering ID 
   // pid_throttle.Init(0.2, 0.001, 0.4, 1.2, -1.2);
-      //5th, throttle is looking better, bring down D to see if it helps even more 
-  pid_throttle.Init(0.2, 0.001, 0.1, 1.2, -1.2);
+  //     //5th, throttle is looking better, bring down D to see if it helps even more 
+  // pid_throttle.Init(0.2, 0.001, 0.1, 1.2, -1.2);
+       //6th, going to try taking I down even more 
+  pid_throttle.Init(0.2, 0.0005, 0.1, 1.2, -1.2);
 
 
 
