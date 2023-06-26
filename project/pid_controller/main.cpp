@@ -325,7 +325,7 @@ int main ()
           **/
 
          //calculate the angle using the prepared "angle_between_points" function and subtract "yaw"
-          double angle = angle_between_points(x_points.end()[-2], y_points.end()[-2], x_points.end()[-1], y_points.end()[-1]);
+          double angle = angle_between_points(x_points[x_points.size() -2], y_points[y_points.size() -2], x_points[x_points.size() -1], y_points[y_points.size() -1]);
 
           error_steer = angle - yaw;
           /**
