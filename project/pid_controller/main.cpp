@@ -235,8 +235,10 @@ int main ()
   // pid_steer.Init(0.4, 0.005, 0.4, 1.2, -1.2);
   // // 5th: Steering was looking better but still nudged another car. Tweaking ID more
   // pid_steer.Init(0.4, 0.001, 0.3, 1.2, -1.2);
-    // 6th: Steering was looking better but still nudged the car. Tweaking PID more
-  pid_steer.Init(0.2, 0.0005, 0.7, 1.2, -1.2);
+  //   // 6th: Steering was looking better but still nudged the car. Tweaking PID more
+  // pid_steer.Init(0.2, 0.0005, 0.7, 1.2, -1.2);
+      // 7th: One more try
+  pid_steer.Init(0.5, 0.001, 0.7, 1.2, -1.2);
 
 
 
@@ -251,9 +253,10 @@ int main ()
   // pid_throttle.Init(0.2, 0.001, 0.4, 1.2, -1.2);
   //     //5th, throttle is looking better, bring down D to see if it helps even more 
   // pid_throttle.Init(0.2, 0.001, 0.1, 1.2, -1.2);
-       //6th, going to try taking D up a bit
-  pid_throttle.Init(0.2, 0.001, 0.3, 1.2, -1.2);
-
+  //      //6th, going to try taking D up a bit
+  // pid_throttle.Init(0.2, 0.001, 0.3, 1.2, -1.2);
+       //7th, 5th was better than 6th
+  pid_throttle.Init(0.2, 0.001, 0.1, 1.2, -1.2);
 
 
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer, &i, &prev_timer](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
