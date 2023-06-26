@@ -6,19 +6,19 @@ In this project, you will apply the skills you have acquired in this course to d
 
 # Answers
 ### First run didn't end great
-![First run](images/simulator-1.png)
+![First run](project/pid_controller/screenshot/simulator-1.png)
 ### Last run was a success
-![Last run](images/simulator-2.png)
+![Last run](project/pid_controller/screenshot/simulator-2.png)
 
 ## Plots from PID tuning
 ### Steering
 | Run | Steer params | Plot|
 |-----|--------------|-----|
-| 1 | P: 1.0, I: 1.0, D: 1.0| ![Plot1](images/plot-steering-1.png)|
-| 2 | P: 0.5, I: 0.5, D: 1.0|![Plot2](images/plot-steering-2.png) |
-| 3 | P: 0.1, I: 0.05, D: 1.0|![Plot3](images/plot-steering-3.png) |
-| 4 | P: 0.4, I: 0.005, D: 0.4|![Plot4](images/plot-steering-4.png) |
-| 5 | P: 0.4, I: 0.001, D: 0.3|![Plot5](images/plot-steering-5.png) |
+| 1 | P: 1.0, I: 1.0, D: 1.0| ![Plot1](project/pid_controller/screenshot/plot-steering-1.png)|
+| 2 | P: 0.5, I: 0.5, D: 1.0|![Plot2](project/pid_controller/screenshot/plot-steering-2.png) |
+| 3 | P: 0.1, I: 0.05, D: 1.0|![Plot3](project/pid_controller/screenshot/plot-steering-3.png) |
+| 4 | P: 0.4, I: 0.005, D: 0.4|![Plot4](project/pid_controller/screenshot/plot-steering-4.png) |
+| 5 | P: 0.4, I: 0.001, D: 0.3|![Plot5](project/pid_controller/screenshot/plot-steering-5.png) |
 
 The steering error started off quite drastic and overshooting a lot. During the course of the PID tuning the error scale decreased a lot and the results were stable. 
 
@@ -35,11 +35,11 @@ The steering error started off quite drastic and overshooting a lot. During the 
 ### Throttle
 | Run | Throttle params | Plot|
 |-----|-----------------|-----|
-| 1 | P: 0.2, I: 0.004, D: 3.0|![Plot1](images/plot-throttle-1.png) |
-| 2 | P: 0.2, I: 0.01, D: 3.0|![Plot2](images/plot-throttle-2.png) |
-| 3 | P: 0.2, I: 0.01, D: 1.0|![Plot3](images/plot-throttle-3.png) |
-| 4 | P: 0.2, I: 0.001, D: 0.4|![Plot4](images/plot-throttle-4.png) |
-| 5 | P: 0.2, I: 0.001, D: 0.1|![Plot5](images/plot-throttle-5.png) |
+| 1 | P: 0.2, I: 0.004, D: 3.0|![Plot1](project/pid_controller/screenshot/plot-throttle-1.png) |
+| 2 | P: 0.2, I: 0.01, D: 3.0|![Plot2](project/pid_controller/screenshot/plot-throttle-2.png) |
+| 3 | P: 0.2, I: 0.01, D: 1.0|![Plot3](project/pid_controller/screenshot/plot-throttle-3.png) |
+| 4 | P: 0.2, I: 0.001, D: 0.4|![Plot4](project/pid_controller/screenshot/plot-throttle-4.png) |
+| 5 | P: 0.2, I: 0.001, D: 0.1|![Plot5](project/pid_controller/screenshot/plot-throttle-5.png) |
 
 Throttle was initially showing a large bias and got stuck in a steady state. As result of the PID tuning the error level was more balanced and showcased some dynamic results.
 
